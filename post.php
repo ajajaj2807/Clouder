@@ -22,7 +22,7 @@ $postnum = (int)$row["MAX(Id)"] + 1;
 
 $postfile = "posts/".$postnum.".txt";
 $fp = fopen($postfile, "w") or die("Error1");
-fwrite($fp, "<div class='col-10 mx-auto'><p>On ".date("r")." ".$name." posted:</p><hr><div>".$_POST["postcontent"]."</div></div>");
+fwrite($fp, "<div class='post-main'><p>".date("r")."</p><br><p class='post-u'><a href='#'> ".$name." </a> posted:</p><div class='post-content'>".$_POST["postcontent"]."</div></div>");
 fclose($fp);
 
 $q = "INSERT INTO post(origin, created, link) VALUES ('".$_COOKIE["username"]."','".date("r")."','".$postfile."');";
